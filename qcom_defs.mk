@@ -20,7 +20,8 @@ UM_4_19_FAMILY := $(UM_4_19_FAMILY) $(UM_4_9_FAMILY)
 UM_4_9_FAMILY :=
 endif
 
-ifeq ($(TARGET_KERNEL_VERSION),6.6)
+# A kernel-only port may retain the existing userspace HAL generation.
+ifeq ($(or $(TARGET_QCOM_USERSPACE_KERNEL_VERSION),$(TARGET_KERNEL_VERSION)),6.6)
 # UM 5.10 upgraded to UM 6.6
 UM_6_6_FAMILY := $(UM_6_6_FAMILY) $(UM_5_10_FAMILY)
 UM_5_10_FAMILY :=
